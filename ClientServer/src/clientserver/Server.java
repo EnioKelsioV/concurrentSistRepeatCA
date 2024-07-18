@@ -1,21 +1,19 @@
-
-
 package clientserver;
 
+import java.net.ServerSocket;
+import java.io.*;
+import java.net.Socket;
 
 /**
  *
  * @author eniomagalhaes
  */
 
-@Server
 public class Server {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) throws IOException {
+        ServerSocket ss = new ServerSocket(9806);
+        Socket s = ss.accept(); 
+        System.out.println("Client Connected");
     }
     
 }
