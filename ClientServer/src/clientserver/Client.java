@@ -17,6 +17,7 @@ public class Client {
         {
         System.out.println("Client started");
         Socket s = new Socket("localhost", 8080);
+        //Ussing bufferedReader to read data from keyboard
         BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Enter a String");
         String str = userInput.readLine();
@@ -33,13 +34,12 @@ public class Client {
      private static final Random random = new Random(); // Random number generator
     private Session session; // WebSocket session
 
-    // Called when the client connects to the server
+    // Called when the client connects
     public void onOpen(Session session) {
         this.session = session;
         System.out.println("Connected to server");
     }
 
-    // Called when a message is received from the server
     public void onMessage(String message) {
         if (message.equals("start")) { // Start generating numbers if "start" message is received
             startGeneratingNumbers();
