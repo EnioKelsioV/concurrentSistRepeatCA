@@ -27,8 +27,10 @@ public class Server {
             ServerSocket ss = new ServerSocket(8080);
             Socket s = ss.accept(); 
             System.out.println("Client Connected");
+            //buferedreader used to read data from the socket input string
             BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
             String str = in.readLine();
+            //Using PrintWriter to send the string back to the client
             PrintWriter out = new PrintWriter(s.getOutputStream(), true);
             out.println("Server says: " + str);
              

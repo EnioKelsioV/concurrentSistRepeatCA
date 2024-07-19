@@ -17,11 +17,12 @@ public class Client {
         {
         System.out.println("Client started");
         Socket s = new Socket("localhost", 8080);
-        //Ussing bufferedReader to read data from keyboard
+        //Using bufferedReader to read data from keyboard
         BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Enter a String");
         String str = userInput.readLine();
         PrintWriter out = new PrintWriter(s.getOutputStream(),true);
+        //out.print used to send data to server
         out.println(str);
         BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
         System.out.println(in.readLine());
